@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/png" href="images/favicon.png"/>
+    <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@500&display=swap" rel="stylesheet">
+</head>
+    <style>
+        @font-face {
+        font-family: 'icomoon';
+        src:  url('./fonts/icomoon.eot?yezat3');
+        src:  url('./fonts/icomoon.eot?yezat3#iefix') format('embedded-opentype'),
+        url('./fonts/icomoon.ttf?yezat3') format('truetype'),
+        url('./fonts/icomoon.woff?yezat3') format('woff'),
+        url('./fonts/icomoon.svg?yezat3#icomoon') format('svg');
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-instagram:before {
+    content: "\ea92";
+  }
+  .icon-twitter:before {
+    content: "\ea96";
+  }
+  .icon-github:before {
+    content: "\eab0";
+  }
+        body {
+            font-family: 'MuseoModerno', cursive;
+            margin: 0;
+            background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+        }
+        .dashboard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 5%;
+        right: 10%;
+        border: 5px solid #fca311;
+        border-radius: 63px;
+        width: 15%;
+        }
+        .dashboard__score {
+            margin: 0;
+        }
+        .playground {
+            height: 97vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 30px;
+        }
+        .playground__title {
+            color: #fca311;
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+        .playground__container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            border: 5px solid #fca311;
+            border-radius: 54px;
+            width: 30vw;
+            height: 70vh;
+        }
+        .playground__container--items {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .button {
+            font-family: 'MuseoModerno', cursive;
+            font-size: 23px;
+            padding: .7em 2em;
+            border: 3px solid #e5e5e5;
+            border-radius: 50px;
+            outline: none;
+            cursor: pointer;
+            transition: 300ms;
+            transform-origin: center top;
+        }
+        .button:hover {
+            background-color: #aacc00;
+            transform: scale(1.5);
+        }
+        .button:hover ~.button {
+            transform: translate3d(0, 20px, 0);
+        }
+        .playground__container--items2 {
+            margin-bottom: 20px;
+        }
+        .footer {
+            padding-left: 1em;
+            margin: 0;
+            color: #e5e5e5;
+            display: flex;
+            align-items: center;
+        }
+        .social-icon {
+        font-size: 2em;
+        color: #e5e5e5;
+        text-decoration: none;
+        /* background-size: 50px 50px; */
+        margin: 0 10px;
+        }
+
+        /* @media screen and (max-width: 1024px) {
+            .playground__container p {
+                text-align: center;
+            }
+        } */
+
+        @media screen and (max-width: 768px){
+            .dashboard {
+                top: 14%;
+                left: 37%;
+                right: 10%;
+                width: 25%;
+            }
+            .playground__container {
+                width: 50vw;
+                height: 62vh;
+                position: absolute;
+                top: 30%;
+            }
+            .playground__title {
+                position: absolute;
+                top: 0%;
+                left: 23%;
+            }
+        }
+
+        @media screen and (max-width: 480px){
+        .playground__title {
+            position: absolute;
+            top: 6%;
+            font-size: 1.3em;
+            left: 18%;
+        }
+        .playground__container {
+            position: absolute;
+            top: 34%;
+        }
+        .playground__container p {
+            text-align: center;
+        }
+        .dashboard {
+            top: 19%;
+            left: 30%;
+            right: 10%;
+            width: 38%;
+        }
+    }
+
+    @media screen and (max-width: 360px){
+        .playground__title {
+            top: 8%;
+            font-size: 1em;
+            left: 14%;
+        }
+        .dashboard {
+            font-size: .9em;
+            left: 29%;
+            width: 42%;
+        }
+        .playground__container {
+            width: 35vh;
+        }
+    }
+    </style>
+<body>
+    <section class="playground">
+        <div class="dashboard">
+            <p class="dashboard__score">YOU: <span id="user"></span></p>
+            <P class="dashboard__score">PC: <span id="pc"></span></P>
+        </div>
+        <h2 class="playground__title">READY TO PLAY?</h2>
+            <div class="playground__container">
+                <p>Choose your option</p>
+                <div class="playground__container--items">
+                    <input type="button" class="button" value="Rock" id="rock" data-opcion="rock">
+                    <input type="button" class="button" value="Paper" id="paper" data-opcion="paper">
+                    <input type="button" class="button" value="Scissors" id="scissors" data-opcion="scissors"><br>
+                </div>
+            </div>
+    </section>
+    
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="game.js"></script>
+
+</body>
+</html>
