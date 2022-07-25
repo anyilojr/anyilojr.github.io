@@ -34,8 +34,11 @@ body{
   align-items: center;
   justify-content: center;
   color: white;
-  
+}
 
+input:checked + label{
+  background-color: #5d8bf4;
+  border: solid 3px #00ccff;
 }
 .tarjeta-de-mokepon img {
   width: 80px;
@@ -88,7 +91,7 @@ input{
   grid-template-columns: 100px 100px;
   color: white;
 }
-@media (max-width: 360px){
+@media (max-width: 564px){
   .tarjetas{
     flex-direction: column;
   }
