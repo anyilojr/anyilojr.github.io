@@ -3,7 +3,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #000000; /* Fondo negro */
+  background-color: black; /* Fondo negro */
+  margin: 0; /* Elimina el margen por defecto del navegador */
 }
 
 svg {
@@ -24,12 +25,9 @@ svg path#line {
   animation: dash 4s linear infinite;
 }
 
-svg text#message {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
+svg path#heart {
   transform-origin: 50% 50%;
-  animation: expand 4s linear infinite;
-  fill: #ff9999;
+  animation: blink 4s linear infinite;
 }
 
 @keyframes dash {
@@ -44,20 +42,33 @@ svg text#message {
   }
 }
 
-@keyframes expand {
+@keyframes blink {
   0% {
     opacity: 0;
-    transform: scale(0.5);
-    fill: #ff9999;
+    transform: scale(0);
   }
-  50% {
+  60% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  75% {
     opacity: 1;
     transform: scale(1.0);
-    fill: #ff4d4d;
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  85% {
+    opacity: 1;
+    transform: scale(1.0);
   }
   100% {
-    opacity: 1;
+    opacity: 0;
     transform: scale(1.0);
-    fill: #e00000;
   }
 }
